@@ -74,6 +74,7 @@ static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 void ReadMatrixButton_1Row();
+void PasswordState();
 
 /* USER CODE END PFP */
 
@@ -127,7 +128,7 @@ int main(void)
 	  {
 		  timestamp = HAL_GetTick() + 10;
 		  ReadMatrixButton_1Row();
-
+		  PasswordState();
 	  }
   }
   /* USER CODE END 3 */
@@ -305,6 +306,281 @@ void ReadMatrixButton_1Row()
 	HAL_GPIO_WritePin(R[(X+1)%4].PORT, R[(X+1)%4].PIN, 0);
 	X++;
 	X%=4;
+}
+
+void PasswordState()
+{
+	int State = 0;
+	int Y = 0;
+	switch(State)
+	{
+		default:
+		case 0:
+			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_RESET);
+			if(ButtonMatrix == 32)
+			{
+				Y = 6;
+				State = 1;
+			}
+			else if(ButtonMatrix == 256)
+			{
+				Y = 00;
+				State = 0;
+			}
+			else if(ButtonMatrix == 0)
+			{
+				State = 0;
+			}
+			else
+			{
+				Y = 01;
+				State = 12;
+			}
+		break;
+		case 1:
+			if(ButtonMatrix == 8192)
+			{
+				Y = 4;
+				State = 2;
+			}
+			else if(ButtonMatrix == 256)
+			{
+				Y = 00;
+				State = 0;
+			}
+			else if(ButtonMatrix == 0)
+			{
+				State = 1;
+			}
+			else
+			{
+				Y = 01;
+				State = 12;
+			}
+		break;
+		case 2:
+			if(ButtonMatrix == 64)
+			{
+				Y = 3;
+				State = 3;
+			}
+			else if(ButtonMatrix == 256)
+			{
+				Y = 00;
+				State = 0;
+			}
+			else if(ButtonMatrix == 0)
+			{
+				State = 2;
+			}
+			else
+			{
+				Y = 01;
+				State = 12;
+			}
+		break;
+		case 3:
+			if(ButtonMatrix == 8192)
+			{
+				Y = 4;
+				State = 4;
+			}
+			else if(ButtonMatrix == 256)
+			{
+				Y = 00;
+				State = 0;
+			}
+			else if(ButtonMatrix == 0)
+			{
+				State = 3;
+			}
+			else
+			{
+				Y = 01;
+				State = 12;
+			}
+		break;
+		case 4:
+			if(ButtonMatrix == 32768)
+			{
+				Y = 0;
+				State = 5;
+			}
+			else if(ButtonMatrix == 256)
+			{
+				Y = 00;
+				State = 0;
+			}
+			else if(ButtonMatrix == 0)
+			{
+				State = 4;
+			}
+			else
+			{
+				Y = 01;
+				State = 12;
+			}
+		break;
+		case 5:
+			if(ButtonMatrix == 2)
+			{
+				Y = 5;
+				State = 6;
+			}
+			else if(ButtonMatrix == 256)
+			{
+				Y = 00;
+				State = 0;
+			}
+			else if(ButtonMatrix == 0)
+			{
+				State = 5;
+			}
+			else
+			{
+				Y = 01;
+				State = 12;
+			}
+		break;
+		case 6:
+			if(ButtonMatrix == 32768)
+			{
+				Y = 0;
+				State = 7;
+			}
+			else if(ButtonMatrix == 256)
+			{
+				Y = 00;
+				State = 0;
+			}
+			else if(ButtonMatrix == 0)
+			{
+				State = 6;
+			}
+			else
+			{
+				Y = 01;
+				State = 12;
+			}
+		break;
+		case 7:
+			if(ButtonMatrix == 32768)
+			{
+				Y = 0;
+				State = 8;
+			}
+			else if(ButtonMatrix == 256)
+			{
+				Y = 00;
+				State = 0;
+			}
+			else if(ButtonMatrix == 0)
+			{
+				State = 7;
+			}
+			else
+			{
+				Y = 01;
+				State = 12;
+			}
+		break;
+		case 8:
+			if(ButtonMatrix == 32768)
+			{
+				Y = 0;
+				State = 9;
+			}
+			else if(ButtonMatrix == 256)
+			{
+				Y = 00;
+				State = 0;
+			}
+			else if(ButtonMatrix == 0)
+			{
+				State = 8;
+			}
+			else
+			{
+				Y = 01;
+				State = 12;
+			}
+		break;
+		case 9:
+			if(ButtonMatrix == 32)
+			{
+				Y = 6;
+				State = 10;
+			}
+			else if(ButtonMatrix == 256)
+			{
+				Y = 00;
+				State = 0;
+			}
+			else if(ButtonMatrix == 0)
+			{
+				State = 9;
+			}
+			else
+			{
+				Y = 01;
+				State = 12;
+			}
+		break;
+		case 10:
+			if(ButtonMatrix == 64)
+			{
+				Y = 3;
+				State = 11;
+			}
+			else if(ButtonMatrix == 256)
+			{
+				Y = 00;
+				State = 0;
+			}
+			else if(ButtonMatrix == 0)
+			{
+				State = 10;
+			}
+			else
+			{
+				Y = 01;
+				State = 12;
+			}
+		break;
+		case 11:
+			if(ButtonMatrix == 2048)
+			{
+				HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_SET);
+				Y = 11;
+			}
+			else if(ButtonMatrix == 256)
+			{
+				Y = 00;
+				State = 0;
+			}
+			else if(ButtonMatrix == 0)
+			{
+				State = 11;
+			}
+			else
+			{
+				Y = 01;
+				State = 12;
+			}
+		break;
+		case 12:
+			if(ButtonMatrix == 256)
+			{
+				Y = 00;
+				State = 0;
+			}
+			else if(ButtonMatrix == 0)
+			{
+				State = 12;
+			}
+
+		break;
+	}
 }
 /* USER CODE END 4 */
 
