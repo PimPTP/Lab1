@@ -65,6 +65,8 @@ PortPin L[4] =
 };
 
 uint16_t ButtonMatrix = 0;
+int State = 0;
+int Y = 0;
 
 /* USER CODE END PV */
 
@@ -310,8 +312,6 @@ void ReadMatrixButton_1Row()
 
 void PasswordState()
 {
-	int State = 0;
-	int Y = 0;
 	switch(State)
 	{
 		default:
@@ -324,7 +324,7 @@ void PasswordState()
 			}
 			else if(ButtonMatrix == 256)
 			{
-				Y = 00;
+				Y = 10;
 				State = 0;
 			}
 			else if(ButtonMatrix == 0)
@@ -333,7 +333,7 @@ void PasswordState()
 			}
 			else
 			{
-				Y = 01;
+				Y = 11;
 				State = 12;
 			}
 		break;
@@ -345,7 +345,7 @@ void PasswordState()
 			}
 			else if(ButtonMatrix == 256)
 			{
-				Y = 00;
+				Y = 10;
 				State = 0;
 			}
 			else if(ButtonMatrix == 0)
@@ -354,7 +354,7 @@ void PasswordState()
 			}
 			else
 			{
-				Y = 01;
+				Y = 11;
 				State = 12;
 			}
 		break;
@@ -366,7 +366,7 @@ void PasswordState()
 			}
 			else if(ButtonMatrix == 256)
 			{
-				Y = 00;
+				Y = 10;
 				State = 0;
 			}
 			else if(ButtonMatrix == 0)
@@ -375,7 +375,7 @@ void PasswordState()
 			}
 			else
 			{
-				Y = 01;
+				Y = 11;
 				State = 12;
 			}
 		break;
@@ -387,7 +387,7 @@ void PasswordState()
 			}
 			else if(ButtonMatrix == 256)
 			{
-				Y = 00;
+				Y = 10;
 				State = 0;
 			}
 			else if(ButtonMatrix == 0)
@@ -396,7 +396,7 @@ void PasswordState()
 			}
 			else
 			{
-				Y = 01;
+				Y = 11;
 				State = 12;
 			}
 		break;
@@ -408,7 +408,7 @@ void PasswordState()
 			}
 			else if(ButtonMatrix == 256)
 			{
-				Y = 00;
+				Y = 10;
 				State = 0;
 			}
 			else if(ButtonMatrix == 0)
@@ -417,7 +417,7 @@ void PasswordState()
 			}
 			else
 			{
-				Y = 01;
+				Y = 11;
 				State = 12;
 			}
 		break;
@@ -429,7 +429,7 @@ void PasswordState()
 			}
 			else if(ButtonMatrix == 256)
 			{
-				Y = 00;
+				Y = 10;
 				State = 0;
 			}
 			else if(ButtonMatrix == 0)
@@ -438,7 +438,7 @@ void PasswordState()
 			}
 			else
 			{
-				Y = 01;
+				Y = 11;
 				State = 12;
 			}
 		break;
@@ -450,7 +450,7 @@ void PasswordState()
 			}
 			else if(ButtonMatrix == 256)
 			{
-				Y = 00;
+				Y = 10;
 				State = 0;
 			}
 			else if(ButtonMatrix == 0)
@@ -459,7 +459,7 @@ void PasswordState()
 			}
 			else
 			{
-				Y = 01;
+				Y = 11;
 				State = 12;
 			}
 		break;
@@ -471,7 +471,7 @@ void PasswordState()
 			}
 			else if(ButtonMatrix == 256)
 			{
-				Y = 00;
+				Y = 10;
 				State = 0;
 			}
 			else if(ButtonMatrix == 0)
@@ -480,7 +480,7 @@ void PasswordState()
 			}
 			else
 			{
-				Y = 01;
+				Y = 11;
 				State = 12;
 			}
 		break;
@@ -492,7 +492,7 @@ void PasswordState()
 			}
 			else if(ButtonMatrix == 256)
 			{
-				Y = 00;
+				Y = 10;
 				State = 0;
 			}
 			else if(ButtonMatrix == 0)
@@ -501,7 +501,7 @@ void PasswordState()
 			}
 			else
 			{
-				Y = 01;
+				Y = 11;
 				State = 12;
 			}
 		break;
@@ -513,7 +513,7 @@ void PasswordState()
 			}
 			else if(ButtonMatrix == 256)
 			{
-				Y = 00;
+				Y = 10;
 				State = 0;
 			}
 			else if(ButtonMatrix == 0)
@@ -522,7 +522,7 @@ void PasswordState()
 			}
 			else
 			{
-				Y = 01;
+				Y = 11;
 				State = 12;
 			}
 		break;
@@ -534,7 +534,7 @@ void PasswordState()
 			}
 			else if(ButtonMatrix == 256)
 			{
-				Y = 00;
+				Y = 10;
 				State = 0;
 			}
 			else if(ButtonMatrix == 0)
@@ -543,7 +543,7 @@ void PasswordState()
 			}
 			else
 			{
-				Y = 01;
+				Y = 11;
 				State = 12;
 			}
 		break;
@@ -551,11 +551,11 @@ void PasswordState()
 			if(ButtonMatrix == 2048)
 			{
 				HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_SET);
-				Y = 11;
+				Y = 12;
 			}
 			else if(ButtonMatrix == 256)
 			{
-				Y = 00;
+				Y = 10;
 				State = 0;
 			}
 			else if(ButtonMatrix == 0)
@@ -564,14 +564,14 @@ void PasswordState()
 			}
 			else
 			{
-				Y = 01;
+				Y = 11;
 				State = 12;
 			}
 		break;
 		case 12:
 			if(ButtonMatrix == 256)
 			{
-				Y = 00;
+				Y = 10;
 				State = 0;
 			}
 			else if(ButtonMatrix == 0)
