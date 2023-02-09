@@ -317,12 +317,12 @@ void PasswordState()
 		default:
 		case 0:
 			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_RESET);
-			if(ButtonMatrix == 32)
+			if(ButtonMatrix == 512)
 			{
 				Y = 6;
 				State = 1;
 			}
-			else if(ButtonMatrix == 256)
+			else if(ButtonMatrix == 4096)
 			{
 				Y = 10;
 				State = 0;
@@ -338,12 +338,12 @@ void PasswordState()
 			}
 		break;
 		case 1:
-			if(ButtonMatrix == 8192)
+			if(ButtonMatrix == 2)
 			{
 				Y = 4;
 				State = 2;
 			}
-			else if(ButtonMatrix == 256)
+			else if(ButtonMatrix == 4096)
 			{
 				Y = 10;
 				State = 0;
@@ -359,12 +359,12 @@ void PasswordState()
 			}
 		break;
 		case 2:
-			if(ButtonMatrix == 64)
+			if(ButtonMatrix == 1024)
 			{
 				Y = 3;
 				State = 3;
 			}
-			else if(ButtonMatrix == 256)
+			else if(ButtonMatrix == 4096)
 			{
 				Y = 10;
 				State = 0;
@@ -380,12 +380,12 @@ void PasswordState()
 			}
 		break;
 		case 3:
-			if(ButtonMatrix == 8192)
+			if(ButtonMatrix == 2)
 			{
 				Y = 4;
 				State = 4;
 			}
-			else if(ButtonMatrix == 256)
+			else if(ButtonMatrix == 4096)
 			{
 				Y = 10;
 				State = 0;
@@ -401,12 +401,12 @@ void PasswordState()
 			}
 		break;
 		case 4:
-			if(ButtonMatrix == 32768)
+			if(ButtonMatrix == 8)
 			{
 				Y = 0;
 				State = 5;
 			}
-			else if(ButtonMatrix == 256)
+			else if(ButtonMatrix == 4096)
 			{
 				Y = 10;
 				State = 0;
@@ -422,12 +422,12 @@ void PasswordState()
 			}
 		break;
 		case 5:
-			if(ButtonMatrix == 2)
+			if(ButtonMatrix == 32)
 			{
 				Y = 5;
 				State = 6;
 			}
-			else if(ButtonMatrix == 256)
+			else if(ButtonMatrix == 4096)
 			{
 				Y = 10;
 				State = 0;
@@ -443,12 +443,12 @@ void PasswordState()
 			}
 		break;
 		case 6:
-			if(ButtonMatrix == 32768)
+			if(ButtonMatrix == 8)
 			{
 				Y = 0;
 				State = 7;
 			}
-			else if(ButtonMatrix == 256)
+			else if(ButtonMatrix == 4096)
 			{
 				Y = 10;
 				State = 0;
@@ -464,12 +464,12 @@ void PasswordState()
 			}
 		break;
 		case 7:
-			if(ButtonMatrix == 32768)
+			if(ButtonMatrix == 8)
 			{
 				Y = 0;
 				State = 8;
 			}
-			else if(ButtonMatrix == 256)
+			else if(ButtonMatrix == 4096)
 			{
 				Y = 10;
 				State = 0;
@@ -485,12 +485,12 @@ void PasswordState()
 			}
 		break;
 		case 8:
-			if(ButtonMatrix == 32768)
+			if(ButtonMatrix == 8)
 			{
 				Y = 0;
 				State = 9;
 			}
-			else if(ButtonMatrix == 256)
+			else if(ButtonMatrix == 4096)
 			{
 				Y = 10;
 				State = 0;
@@ -506,12 +506,12 @@ void PasswordState()
 			}
 		break;
 		case 9:
-			if(ButtonMatrix == 32)
+			if(ButtonMatrix == 512)
 			{
 				Y = 6;
 				State = 10;
 			}
-			else if(ButtonMatrix == 256)
+			else if(ButtonMatrix == 4096)
 			{
 				Y = 10;
 				State = 0;
@@ -527,12 +527,12 @@ void PasswordState()
 			}
 		break;
 		case 10:
-			if(ButtonMatrix == 64)
+			if(ButtonMatrix == 1024)
 			{
 				Y = 3;
 				State = 11;
 			}
-			else if(ButtonMatrix == 256)
+			else if(ButtonMatrix == 4096)
 			{
 				Y = 10;
 				State = 0;
@@ -548,12 +548,12 @@ void PasswordState()
 			}
 		break;
 		case 11:
-			if(ButtonMatrix == 2048)
+			if(ButtonMatrix == 32768)
 			{
 				HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_SET);
 				Y = 12;
 			}
-			else if(ButtonMatrix == 256)
+			else if(ButtonMatrix == 4096)
 			{
 				Y = 10;
 				State = 0;
@@ -569,7 +569,7 @@ void PasswordState()
 			}
 		break;
 		case 12:
-			if(ButtonMatrix == 256)
+			if(ButtonMatrix == 4096)
 			{
 				Y = 10;
 				State = 0;
