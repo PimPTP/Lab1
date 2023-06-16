@@ -66,7 +66,6 @@ PortPin L[4] =
 
 uint16_t ButtonMatrix = 0;
 int State = 0;
-int Y = 0;
 
 /* USER CODE END PV */
 
@@ -317,268 +316,67 @@ void PasswordState()
 		default:
 		case 0:
 			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_RESET);
-			if(ButtonMatrix == 512)
-			{
-				Y = 6;
-				State = 1;
-			}
-			else if(ButtonMatrix == 4096)
-			{
-				Y = 10;
-				State = 0;
-			}
-			else if(ButtonMatrix == 0)
-			{
-				State = 0;
-			}
-			else
-			{
-				Y = 11;
-				State = 12;
-			}
+			if(ButtonMatrix == 512){State = 1;}	//6
+			else if(ButtonMatrix == 4096){State = 0;} //Clear
+			else if(ButtonMatrix==1||ButtonMatrix==2||ButtonMatrix==4||ButtonMatrix==8||ButtonMatrix==16||ButtonMatrix==32||ButtonMatrix==64||ButtonMatrix==256||ButtonMatrix==1024){State = 12;}
 		break;
 		case 1:
-			if(ButtonMatrix == 2)
-			{
-				Y = 4;
-				State = 2;
-			}
-			else if(ButtonMatrix == 4096)
-			{
-				Y = 10;
-				State = 0;
-			}
-			else if(ButtonMatrix == 0)
-			{
-				State = 1;
-			}
-			else
-			{
-				Y = 11;
-				State = 12;
-			}
+			if(ButtonMatrix == 2){State = 2;} //4
+			else if(ButtonMatrix == 4096){State = 0;} //Clear
+			else if(ButtonMatrix==1||ButtonMatrix==4||ButtonMatrix==8||ButtonMatrix==16||ButtonMatrix==32||ButtonMatrix==64||ButtonMatrix==256||ButtonMatrix==512||ButtonMatrix==1024){State = 12;}
 		break;
 		case 2:
-			if(ButtonMatrix == 1024)
-			{
-				Y = 3;
-				State = 3;
-			}
-			else if(ButtonMatrix == 4096)
-			{
-				Y = 10;
-				State = 0;
-			}
-			else if(ButtonMatrix == 0)
-			{
-				State = 2;
-			}
-			else
-			{
-				Y = 11;
-				State = 12;
-			}
+			if(ButtonMatrix == 1024){State = 3;} //3
+			else if(ButtonMatrix == 4096){State = 0;} //Clear
+			else if(ButtonMatrix==1||ButtonMatrix==2||ButtonMatrix==4||ButtonMatrix==8||ButtonMatrix==16||ButtonMatrix==32||ButtonMatrix==64||ButtonMatrix==256||ButtonMatrix==512){State = 12;}
 		break;
 		case 3:
-			if(ButtonMatrix == 2)
-			{
-				Y = 4;
-				State = 4;
-			}
-			else if(ButtonMatrix == 4096)
-			{
-				Y = 10;
-				State = 0;
-			}
-			else if(ButtonMatrix == 0)
-			{
-				State = 3;
-			}
-			else
-			{
-				Y = 11;
-				State = 12;
-			}
+			if(ButtonMatrix == 2){State = 4;} //4
+			else if(ButtonMatrix == 4096){State = 0;} //Clear
+			else if(ButtonMatrix==1||ButtonMatrix==4||ButtonMatrix==8||ButtonMatrix==16||ButtonMatrix==32||ButtonMatrix==64||ButtonMatrix==256||ButtonMatrix==512||ButtonMatrix==1024){State = 12;}
 		break;
 		case 4:
-			if(ButtonMatrix == 8)
-			{
-				Y = 0;
-				State = 5;
-			}
-			else if(ButtonMatrix == 4096)
-			{
-				Y = 10;
-				State = 0;
-			}
-			else if(ButtonMatrix == 0)
-			{
-				State = 4;
-			}
-			else
-			{
-				Y = 11;
-				State = 12;
-			}
+			if(ButtonMatrix == 8){State = 5;} //0
+			else if(ButtonMatrix == 4096){State = 0;} //Clear
+			else if(ButtonMatrix==1||ButtonMatrix==2||ButtonMatrix==4||ButtonMatrix==16||ButtonMatrix==32||ButtonMatrix==64||ButtonMatrix==256||ButtonMatrix==512||ButtonMatrix==1024){State = 12;}
 		break;
 		case 5:
-			if(ButtonMatrix == 32)
-			{
-				Y = 5;
-				State = 6;
-			}
-			else if(ButtonMatrix == 4096)
-			{
-				Y = 10;
-				State = 0;
-			}
-			else if(ButtonMatrix == 0)
-			{
-				State = 5;
-			}
-			else
-			{
-				Y = 11;
-				State = 12;
-			}
+			if(ButtonMatrix == 32){State = 6;} //5
+			else if(ButtonMatrix == 4096){State = 0;} //Clear
+			else if(ButtonMatrix==1||ButtonMatrix==2||ButtonMatrix==4||ButtonMatrix==8||ButtonMatrix==16||ButtonMatrix==64||ButtonMatrix==256||ButtonMatrix==512||ButtonMatrix==1024){State = 12;}
 		break;
 		case 6:
-			if(ButtonMatrix == 8)
-			{
-				Y = 0;
-				State = 7;
-			}
-			else if(ButtonMatrix == 4096)
-			{
-				Y = 10;
-				State = 0;
-			}
-			else if(ButtonMatrix == 0)
-			{
-				State = 6;
-			}
-			else
-			{
-				Y = 11;
-				State = 12;
-			}
+			if(ButtonMatrix == 8){State = 7;} //0
+			else if(ButtonMatrix == 4096){State = 0;} //Clear
+			else if(ButtonMatrix==1||ButtonMatrix==2||ButtonMatrix==4||ButtonMatrix==16||ButtonMatrix==32||ButtonMatrix==64||ButtonMatrix==256||ButtonMatrix==512||ButtonMatrix==1024){State = 12;}
 		break;
 		case 7:
-			if(ButtonMatrix == 8)
-			{
-				Y = 0;
-				State = 8;
-			}
-			else if(ButtonMatrix == 4096)
-			{
-				Y = 10;
-				State = 0;
-			}
-			else if(ButtonMatrix == 0)
-			{
-				State = 7;
-			}
-			else
-			{
-				Y = 11;
-				State = 12;
-			}
+			if(ButtonMatrix == 8){State = 8;} //0
+			else if(ButtonMatrix == 4096){State = 0;} //Clear
+			else if(ButtonMatrix==1||ButtonMatrix==2||ButtonMatrix==4||ButtonMatrix==16||ButtonMatrix==32||ButtonMatrix==64||ButtonMatrix==256||ButtonMatrix==512||ButtonMatrix==1024){State = 12;}
 		break;
 		case 8:
-			if(ButtonMatrix == 8)
-			{
-				Y = 0;
-				State = 9;
-			}
-			else if(ButtonMatrix == 4096)
-			{
-				Y = 10;
-				State = 0;
-			}
-			else if(ButtonMatrix == 0)
-			{
-				State = 8;
-			}
-			else
-			{
-				Y = 11;
-				State = 12;
-			}
+			if(ButtonMatrix == 8){State = 9;} //0
+			else if(ButtonMatrix == 4096){State = 0;} //Clear
+			else if(ButtonMatrix==1||ButtonMatrix==2||ButtonMatrix==4||ButtonMatrix==16||ButtonMatrix==32||ButtonMatrix==64||ButtonMatrix==256||ButtonMatrix==512||ButtonMatrix==1024){State = 12;}
 		break;
 		case 9:
-			if(ButtonMatrix == 512)
-			{
-				Y = 6;
-				State = 10;
-			}
-			else if(ButtonMatrix == 4096)
-			{
-				Y = 10;
-				State = 0;
-			}
-			else if(ButtonMatrix == 0)
-			{
-				State = 9;
-			}
-			else
-			{
-				Y = 11;
-				State = 12;
-			}
+			if(ButtonMatrix == 512){State = 10;} //6
+			else if(ButtonMatrix == 4096){State = 0;} //Clear
+			else if(ButtonMatrix==1||ButtonMatrix==2||ButtonMatrix==4||ButtonMatrix==8||ButtonMatrix==16||ButtonMatrix==32||ButtonMatrix==64||ButtonMatrix==256||ButtonMatrix==1024){State = 12;}
 		break;
 		case 10:
-			if(ButtonMatrix == 1024)
-			{
-				Y = 3;
-				State = 11;
-			}
-			else if(ButtonMatrix == 4096)
-			{
-				Y = 10;
-				State = 0;
-			}
-			else if(ButtonMatrix == 0)
-			{
-				State = 10;
-			}
-			else
-			{
-				Y = 11;
-				State = 12;
-			}
+			if(ButtonMatrix == 1024){State = 11;} //3
+			else if(ButtonMatrix == 4096){State = 0;} //Clear
+			else if(ButtonMatrix==1||ButtonMatrix==2||ButtonMatrix==4||ButtonMatrix==8||ButtonMatrix==16||ButtonMatrix==32||ButtonMatrix==64||ButtonMatrix==256||ButtonMatrix==512){State = 12;}
 		break;
 		case 11:
-			if(ButtonMatrix == 32768)
-			{
-				HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_SET);
-				Y = 12;
-			}
-			else if(ButtonMatrix == 4096)
-			{
-				Y = 10;
-				State = 0;
-			}
-			else if(ButtonMatrix == 0)
-			{
-				State = 11;
-			}
-			else
-			{
-				Y = 11;
-				State = 12;
-			}
+			if(ButtonMatrix == 32768){HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_SET);} //Ok
+			else if(ButtonMatrix == 4096){State = 0;} //Clear
+			else if(ButtonMatrix==1||ButtonMatrix==2||ButtonMatrix==4||ButtonMatrix==8||ButtonMatrix==16||ButtonMatrix==32||ButtonMatrix==64||ButtonMatrix==256||ButtonMatrix==512||ButtonMatrix==1024){State = 12;}
 		break;
 		case 12:
-			if(ButtonMatrix == 4096)
-			{
-				Y = 10;
-				State = 0;
-			}
-			else if(ButtonMatrix == 0)
-			{
-				State = 12;
-			}
-
+			if(ButtonMatrix == 4096){State = 0;} //Clear
 		break;
 	}
 }
