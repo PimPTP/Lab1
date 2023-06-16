@@ -129,7 +129,7 @@ int main(void)
 	  if(HAL_GetTick() >= timestamp)
 	  {
 		  timestamp = HAL_GetTick() + 10;
-		  ReadMatrixButton_1Row();
+		  ReadMatrixButton();
 		  PasswordState();
 	  }
   }
@@ -287,7 +287,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void ReadMatrixButton_1Row()
+void ReadMatrixButton()
 {
 	static uint8_t X = 0;
 	register int i;
